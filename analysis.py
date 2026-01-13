@@ -39,8 +39,22 @@ for measurement in seattle:
 
 print(total_yearly_precipitation)
 
+relative_monthly_precipitation = {}
+for month in total_monthly_precipitation:
+    relative=(total_monthly_precipitation[month]*(100/total_yearly_precipitation["2010"]))
+    relative_monthly_precipitation[month]=relative
 
-# x=0
-# total_yearly_precipitation = {}
+print(relative_monthly_precipitation)
+
+with open('relative_results.json', 'w', encoding='utf-8') as file:
+    json.dump(relative_monthly_precipitation, file, indent=4) 
+
+    
+
+
+
+
+# #calculate relative_monthly_precipitation
 # for month in total_monthly_precipitation:
-#     x=x+month['value']
+
+#     *(total_yearly_precipitation[]/100)
