@@ -26,7 +26,18 @@ with open('results.json', 'w', encoding='utf-8') as file:
     json.dump(total_monthly_precipitation, file, indent=4) 
 
 
+total_yearly_precipitation = {}
+for measurement in seattle:
+    measurement["date"]=split_date[0]
 
+    year = measurement['date']
+    if year not in total_yearly_precipitation:
+        total_yearly_precipitation[year] = 0
+    total_yearly_precipitation[year] += measurement['value']
+
+    measurement["date"]=split_date
+
+print(total_yearly_precipitation)
 
 
 # x=0
